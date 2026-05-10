@@ -1,0 +1,99 @@
+//整型
+/*
+  1.短整型：short      （占用2字节）
+  2.整型：int（最常用） （占用4字节）
+  3.长整型：long       （占用4字节）
+  4.长长整型：long long（占用8字节）
+*/
+
+//sizeof关键字
+//作用：统计数据类型所占内存大小
+//语法：sizeof（数据类型 / 变量）
+/*eg：sizeof（short） 运行结果：2
+      sizeof（int） 运行结果：4
+*/
+
+//实型（浮点型）
+//作用：表示小数
+//分类：1.单精度：float （七位有效数字）【4字节】
+       2.双精度：double （15~16位有效数字）【8字节】
+//默认情况下，输出一个小数，会显示出6位有效数字
+include<iostream>
+using namespace std;
+int main()
+{
+    float f1 = 3.1415926f; //在数字后面加一个f，让系统更好判断这是一个单精度
+    cout << f1 << endl;
+    double d1 = 3.1415926
+    cout << d1 << endl;
+    return 0;
+}
+/*结果：3.14159
+       3.14159
+*/
+//科学计数法
+/*eg：
+3e2 = 3*10^2
+3e-2 = 3*0.1^2
+*/
+
+//字符型
+//作用：显示单个字符
+/*语法：
+char 变量名 = 变量 (占1个字节)
+eg：char ch = 'a'
+/*字符型变量对应ASCII编码
+eg：
+char ch = 'a'
+(int)ch  结果：97
+*/
+//必须记的ASCII码：A=65 a=97
+
+//转义字符
+//作用：表示一些不能显示出来的ASCII字符
+/*常用：
+1.\n:换行，将当前位置移到下一行开头
+2.\t:水平制表（跳到下一个tab位置）【包括前面所写的内容共占8个字符】
+3.\\:代表一个反斜线字符“\”
+*/
+/*eg:
+1.cout << "helloworld\n"; 结果：helloworld
+2.cout << "\\" << endl; 结果：\
+3.cout << "aaa\thelloworld" << endl; 结果：aaa     helloworld
+
+//字符串型
+//作用：表示一串字符
+/*语法：
+1.c风格字符串：char 变量名[] = “字符串值” 
+eg;
+char str[] = "helloworld";
+dout << str << endl;
+2.c++风格字符串：string 变量名 = “字符串值”  
+使用时必须包含一个头文件 #include<sttring>
+eg:
+#include<sttring>
+string str2 = "helloworld";
+cout << str2 << endl;
+
+//布尔类型bool
+//作用：代表真或假的值（占1个字节）
+//除了0代表假其他数字都代表真
+//bool类型只有两个值：
+true——真（本质是1）
+false——假（本质是0）
+/*eg:
+bool flag = true;
+cout << flag <<endl;  结果：1
+
+falg = false;
+cout << flag << endl; 结果：0
+*/
+
+//数据的输入cin
+//作用：从键盘获取数据
+//语法： cin >> 变量
+/*eg:
+
+
+
+
