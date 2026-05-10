@@ -1,0 +1,84 @@
+//开头必写格式
+#include<iostream>
+using namespace std;
+int main()
+{
+    system("pause");
+    return 0;
+}
+
+
+//注释：分为单行注释和多行注释
+//单行注释：//
+//多行注释：/**/
+
+/*
+    main函数有且只有一个 
+    相同文件下的main不能改名否则代码跑不起来
+*/
+
+//变量
+//作用：方便管理内存空间
+//语法： 数据类型 变量名 = 变量的初始值；
+//eg：   int      a    =  10；
+include<iostream>
+using namespace std;
+
+int main()
+{
+    int a = 10;
+    cout << "a = " << a << endl;
+
+    system("pause");
+    return 0;
+}
+//结果：a = 10
+
+//常量
+//作用：记录程序中不可更改的数据，一旦修改就会报错
+/*方法： 
+  1.#define 常量名 常量值 //通常在文件上方定义，表示一个常量
+  2.const 数据类型 常量名 = 常量值 //通常在变量定义前加关键字const，修饰该变量为常量，不可修改
+*/
+#include<iostream>
+using namespace std;
+#define day 7
+int main()
+{
+    cout << day << "天" << endl;
+
+    const int month = 12;
+    cout << month << "月" << endl;
+    return 0;
+}
+
+//关键字
+//在定义变量或常量时，不要与关键字同名
+
+//标识符
+/*命名规则：
+    不能是关键字
+    只能由字母、数字、下划线组成
+    第一个字符必须为字母或者下划线
+    区分大小写
+*/
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
