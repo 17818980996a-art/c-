@@ -1,0 +1,97 @@
+//循环结构
+//语法：while(循环条件){循环语句}
+//只要循环条件的结构为真，就执行循环语句
+eg：
+int num = 0;
+while (num < 10)
+{
+    cout << num << endl;
+    num++;
+}//结果输出0~9
+
+//可以利用break; 退出循环
+//猜数字实例
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+	srand((unsigned int)time(NULL));
+	int num = rand() % 100 + 1;
+	int num1 = 0;
+	while (1)
+	{
+		cin >> num1;
+
+		if (num1 < num) 
+		{
+			cout << "too small" << endl;
+		}
+		else if (num1 > num)
+		{
+			cout << "too big" << endl;
+		}
+		else
+		{
+			cout << "correct" << endl;
+			break;
+		}
+		
+	}
+	return 0;
+}
+
+//do…while循环语句
+//语法：do{循环语句}while(循环条件);
+//注意：与while的区别在于do…while会先执行一次循环语句，再判断循环条件
+eg：输出0~9
+int num = 0;
+do
+{
+    cout << num << endl;
+    num++;
+}
+while (num < 10);
+
+//for循环语句
+//语法：for(起始表达式；条件表达式；末尾循环体){循环语句；}
+eg1：打印数字0~9
+for(int i = 0; i<10; i++)
+{
+    cout << i << endl;
+}
+eg2:打印数字0~9
+int i = 0;
+for(;;)
+{
+    if (i >= 10)
+    {
+        break;
+    }
+    cout << i << endl;
+    i++;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
