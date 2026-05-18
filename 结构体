@@ -1,0 +1,193 @@
+//结构体：属于用户自定义的数据类型，允许用户储存不同的数据类型
+//语法：struct 结构体名{结构体成员列表}
+/*方式：（第1和第2种用的比较多）
+1.struct 结构体名 变量名 【创建的时候struct关键字可以省略！！定义的时候不可以省略】
+2.struct 结构体名 变量名 = {成员1值，成员2值……}
+3.定义结构体时顺便创建变量
+*/
+eg:
+#include<iostream>
+#include<string>
+using namespace std;
+
+struct Student //（此处不可以省略struct）
+{
+    string name;
+    int age;
+}；
+int main()
+{
+//第一种方法
+    struct Student s1;//可省略struct
+    s1.name = "twice";
+    s1.age = 10;
+    cout << s1.namw << s1.age << endl;//结果：twice 10
+//第二种方法
+    struct Student s2 = {twice,10};
+    cout << s2.name << s2.age << endl;//结果：twice 10
+}
+//第三种方法
+struct Student
+{
+    string name;
+    int age;
+}s3；
+int main()
+{
+    s3.name = "twice";
+    s3.age = 10;
+    cout << s1.namw << s1.age << endl;//结果：twice 10
+}
+*/
+
+//结构体数组
+//作用：将自定义的结构体放入到数组中方便维护
+//语法： struct 结构体名 数组名[元素个数] = { {} ， {} ， ... {} }
+eg:
+struct  Student
+{
+    string name;
+    int age;
+    int birthday;
+};
+int main(){
+    struct Student stuArray[3] = 
+    {
+        {"twice",10,1020},
+        {"nayeon",1,922}
+    };
+//可以给数组中的元素改值
+    stuArray[1].birthday = 0922;
+    for (int i = 0;i < 2; i++)
+    {
+        cout << stuArray[i].name << stuArray[i].age 
+             << stuArray[i].birthdya << endl;
+    }
+}
+/*结果：
+twice  10  1020
+nayeon  1  0922
+*/
+
+//结构体指针
+//作用：通过指针访问结构体中的成员
+//利用操作符-> 访问
+eg:
+struct team
+{
+    string name;
+    int age;
+};
+int main()
+{
+    team t = {"twice",10};
+    team * p = &t;
+    cout << p->name
+         << p->age << endl;
+}//结果：twice 10
+
+//结构体嵌套结构体
+eg:
+strutct student
+{
+    string name;
+    int age;
+};
+struct teacher
+{
+    int id;
+    string name;
+    int age;
+    struct student stu;//辅导的学生
+};
+int main()
+{
+    teacher t;
+    t.id = 1000;
+    t.name = "nayeon";
+    t.age = 1;
+    t.stu.name = "once";
+    t.stu.age = 10;
+    cout << t.name << t.id << t.age
+         <<t.stu.name << t.stu.age;
+}
+
+//结构体做函数参数
+//作用：将结构体作为参数向函数中传递
+/*传递方式：
+1.值传递（修改了形参，实参不会改变）
+eg:
+struct student
+{
+    string name;
+    int age;
+};
+void print1(struct student s)
+{
+    s.age = 100;
+    cout << "子函数中：” << s.name << s.age << endl;
+}
+int main()
+{
+    struct studeent s;
+    s.name = "nayeon";
+    s.age = 1;
+    print1(s);
+}//结果：子函数中：nayeon 1
+2.地址传递（反之）
+eg:
+struct student
+{
+    string name;
+    int age;
+};
+void print2(struct student *p)
+{
+    p->age = 922;
+    cout << "子函数中：” << p->name << p->age << endl;
+}
+int main()
+{
+    struct studeent s;
+    s.name = "nayeon";
+    s.age = 1;
+    print2(&s);
+}//结果：子函数中：nayeon 922
+*/
+
+//结构体中const使用场景
+//作用：用const来防止误操作
+//注：将函数中的形参改为指针，可以减少内存空间，而且不会复制新的副本出来，加入const后形参就无法修改，防止误操作
+eg:
+struct student
+{
+    string name;
+    int age;
+};
+void print2(const student *p) //此处的struct可以省略
+{
+    p->age = 922;
+    cout << "子函数中：” << p->name << p->age << endl;
+}
+int main()
+{
+    struct studeent s;
+    s.name = "nayeon";
+    s.age = 1;
+    print2(&s);
+}//结果：子函数中：nayeon 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
