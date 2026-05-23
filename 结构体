@@ -23,7 +23,7 @@ int main()
     s1.age = 10;
     cout << s1.namw << s1.age << endl;//结果：twice 10
 //第二种方法
-    struct Student s2 = {twice,10};
+    struct Student s2 = {twice,10}; //里面元素与元素记得加逗号！！
     cout << s2.name << s2.age << endl;//结果：twice 10
 }
 //第三种方法
