@@ -1,0 +1,142 @@
+//函数默认参数
+//在c++中，函数的形参是可以有默认值的
+/*注：
+1.如果我们自己传入数据，就用自己的数据，如果没有就用设定的默认值
+2.如果某个位置已经有了默认参数，那么从这个位置往后都必须有默认值
+3.如果函数的声明和函数实现只能一个有默认参数
+eg:
+int func1(int a = 10, int b = 20); //函数的声明【已经有默认参数】
+int func1(int a, int b) //函数的实现【不能有默认参数】
+{
+    return a + b;
+}
+*/
+//语法：返回值类型 函数名 (参数 = 默认值) {}
+/*一般情况下：
+int func(int a, int b, int c)
+{
+    return a + b + c;
+}
+int main()
+{
+    cout << func(10, 20, 30 ) << endl;
+    return 0;
+}//结果：60
+*/
+/*函数默认参数：
+int func(int a, int b =20; int c = 30)
+{
+    return a + b + c;
+}
+int main()
+{
+    cout << func(10) << endl; //如果是func(10,20)则结果是70
+}//结果：60
+*/
+
+//函数占位参数
+//c++中函数的形参列表里可以有占位参数，用来做占位，调用函数时必须填补该位置
+//语法： 返回值类型 函数名(数据类型){}
+eg:
+void func(int a, int) //此处的int就是来占位的
+{
+    cout << "this is for" << endl;
+}
+int main()
+{
+    func(10,10); //必须写两个整数，因为前面用了两个int
+}//结果： this is for
+//占位参数也可以有默认参数 eg:void(int a,int = 10) 下面主函数那里就可以不用填补了
+
+//函数重载
+//作用：函数名可以相同，提高复用性
+/*满足条件：
+1.同一个作用域下
+2.函数名称相同
+3.函数参数类型不同或者个数不同或者顺序不同
+*/
+eg:
+void func()
+{
+    cout <<" func () 的调用" << endl;
+}
+void func(int a)
+{
+    cout <<" func (int a) 的调用" << endl;
+}
+void func(int a , double b)
+{
+    cout <<" func (int a , double b) 的调用" << endl;
+}
+void func(double a , int b)
+{
+    cout <<" func (double a , int b) 的调用" << endl;
+}
+int main()
+{
+    func(3.14 , 1);
+    retunr 0;
+}//结果： func (double a , int b) 的调用
+//注：函数的返回值不可以作为函数重载的条件
+eg:
+int func(ddouble a, int b)
+{
+     cout <<" func (double a , int b) 的调用" << endl;
+}//会报错！！
+
+//函数重载的注意事项
+/*
+1.引用作为重载的条件
+eg:
+void func(int &a) //int &a = 10;不合法
+{
+    cout << "func(int &a)的调用" << endl;
+}
+void func(const int &a)//const int &a = 10;合法
+{
+    cout << "func(const int &a)的调用" << endl;
+}
+int main()
+{  
+    int a = 10;
+    func(a);//结果：func(int &a)的调用
+
+    func(10);//结果：func(const int &a)的调用
+
+    return 0;
+}
+
+2.函数重载碰到默认参数
+eg:
+void func2(int a,int b = 10) 
+{
+    cout << "func2(int a,int b = 10)的调用" << endl;
+}
+void func2(int a)//
+{
+    cout << "func2(int &a)的调用" << endl;
+}
+int main()
+{  
+    func(10);//会报错！！因为两个都可以调用，出现二义性。
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
