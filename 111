@@ -1,0 +1,180 @@
+//类和对象
+//c++面对对象的三大特性：封装、继承、多态
+//c++认为万事万物都皆为对象，对象上有其属性和行为
+/*注：
+1.类中的属性和行为统一称为成员
+2.属性叫成员属性或成员变量
+3.行为叫成员函数或成员方法
+*/
+
+
+//封装
+/*意义：
+1.将属性和行为作为一个整体，表现生活中的事物
+语法： class 类名{  访问权限： 属性/行为 }；
+eg1:
+class Circle
+{
+    public: //访问权限、
+    int m_r;
+    double calculateZC()
+    {
+        return 2 * PI * m_r;
+    }
+};
+int main()
+{
+    Circle cl; //cl是变量名称
+    cl.m_r = 10; //给圆对象的属性进行赋值
+    cout << cl.calculateC() << endl;
+    return 0;
+}
+eg2:
+class student
+{
+    public:
+    //属性
+    string name;
+    int id;
+
+    //行为
+    void stushow()
+    {
+        cout << name << id << endl;
+    }
+};
+int main()
+{
+    student stu;
+    stu.name = "nayeon";
+    stu.id = 922;
+    stu.stushow();
+    return 0;
+}//结果：nayeon922
+2.将属性和行为加以权限控制
+访问权限有三种：
+1.public
+2.protected（不可访问）
+3.private（不可访问）
+*/
+
+//struct 和 class区别
+/*区别：默认的访问权限不同
+struct 默认权限为公共
+class 默认权限为私有
+*/
+
+//成员属性设置为私有
+/*优点
+1.将所有成员属性设置为私有，可以自己控制读写权限
+2.对于写权限，我们可以检测数据的有效性
+*/
+class person
+{
+public:
+    //设置姓名
+    void setname(string name)
+    {
+        mname = name;
+    }
+    //获取姓名
+    string getname()
+    {
+        return mname;
+    }
+    //获取年龄
+    int getage()
+    {
+        return mage;
+    }
+    //设置偶像
+    void srtidol(string idol)
+    {
+        midol = idol;
+    }
+private:
+    string mname;//姓名 可读可写
+    int mage = 18;
+    string midol;
+};
+int main()
+{
+    person p;
+    //姓名设置
+    p.setname("张三")；
+    //获取姓名
+    cout << "姓名：" << p.getname() << endl;
+
+    //年龄设置
+    //p.setage(20);
+    //p.mage = 20;
+
+    //偶像设置
+    p.setidol("小明"); //只写
+    //cout << "偶像：" << p.getidol <<endl; //只写状态外界访问不到
+
+    return 0;
+}
+
+//对象的初始化和清理
+//c++利用构造函数和析构函数完成对象初始化和清理工作，这是编译器强制要求做的，因此如果我们不提供构造和析构，编译器会提供，且编译器提供的构造函数和析构函数是空实现
+
+//构造函数：主要作用在于创建对象时为对象的成员属性赋值，构造函数由编译器自动调用，无需手动调用
+//语法： 类名(){}
+/*注：
+1.不需要返回值也不需要void
+2.函数名称与类名相同
+3.构造函数可以有参数，因此可以发生重载
+4.程序在调用对象的时候会自动调用构造，无须手动调用，而且只会调用一次
+*/
+eg:
+class person
+{
+public:
+    person()
+    {
+        cout << "person构造函数的调用" << endl;
+    }
+};
+int main()
+{
+    person p;
+    return 0;
+}//结果：person构造函数的调用
+
+//析构函数：主要作用于在对象销毁前系统自动调用，执行一些清理工作
+//语法：~类名(){}
+/*注：
+1.不需要返回值也不需要void
+2.函数名称与类名相同，在名称前加上符号 ~
+3.析构函数不可以有参数，因此不可以发生重载
+4.程序在对象销毁前会自动调用析构，无需手动调用，而且只会调用一次
+*/
+eg:
+class person
+{
+public:
+    ~person() //这里不可以有参数
+    {
+        cout << "person析构函数的调用" << endl;
+    }
+};
+int main()
+{
+    person p;
+    return 0;
+}//结果：person析构函数的调用
+
+
+
+
+
+
+
+
+
+
+
+
+
+
