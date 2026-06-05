@@ -30,7 +30,7 @@ int func(int a, int b =20; int c = 30)
 }
 int main()
 {
-    cout << func(10) << endl; //如果是func(10,20)则结果是70
+    cout << func(10) << endl; //如果是func(10,30)则结果是70
 }//结果：60
 */
 
